@@ -6,6 +6,8 @@
   <meta charset="UTF-8">
   <title>Train Scheduler</title>
 
+  <script type="text/javascript" src="./logic.js"></script>
+
   <!-- jQuery -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js"></script>
 
@@ -36,81 +38,66 @@
           <iframe width="420" height="315" src="https://www.youtube.com/embed/sw1OwMrh7XA" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-12">
-          <h1 class="text-center"><strong>Groove Line</strong></h1>
-        </div>
+      <div class="jumbotron" style="background-color: black; color: white">
+        <h1 class="text-center">Grooveline</h1>
+        <h3 class="text-center">Rain, shine, don't mind while your riding on the Groove Line tonight...</h3>
       </div>
+
       <div class="row">
-        <div class="col-md-12">
-          <h3 class="text-center">Real time train information and scheduler for the Groove Line, pack your grip!</h3>
-        </div>
-      </div>
-    </div>
 
-    <!-- Contains both tables on page -->
-    <div class="row">
+        <div class="col-lg-12">
 
-      <div class="col-md-12">
-
-        <!-- Current scheduled trains -->
-        <div class="panel panel-primary">
-
-          <!-- Current train table header -->
-          <div class="panel-heading">
-            <h3 class="panel-title"><strong>Current Train Schedule</strong></h3>
+        <!-- Control Panel-->
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title"><strong>Current Train Schedule | Current Time <span id="current-time"></span></strong></h3>
+            </div>
+            <div class="panel-body">
+              <table class="table table-hover" id='employee-table'>
+                <thead>
+                  <tr>
+                    <th>Train Name</th>
+                    <th>Destination</th>
+                    <th>Frequency (min)</th>
+                    <th>Next Arrival</th>
+                    <th>Minutes Away</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
           </div>
 
-          <!-- Current train table content -->
-          <div class="panel-body">
-            <table class="table table-hover" id="train-table">
-              <thead>
-                <tr>
-                  <th>Train Name</th>
-                  <th>Destination</th>
-                  <th>Frequency (minutes)</th>
-                  <th>Next Arrival</th>
-                  <th>Minutes Away</th>
-                </tr>
-              </thead>
-              <tbody>
-              </tbody>
-            </table>
-          </div>
+          <!-- Add Train  -->
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title"><strong>Add Train</strong></h3>
+            </div>
+            <div class="panel-body">
 
-        </div>
+              <!-- Train Entry Form -->
+              <form>
+                <div class="form-group">
+                  <label for="train-name">Train Name</label>
+                  <input class="form-control" id="train-name" type="text">
+                </div>
+                <div class="form-group">
+                  <label for="destination">Destination</label>
+                  <input class="form-control" id="destination" type="text">
+                </div>
+                <div class="form-group">
+                  <label for="first-train">First Train Time (HH:mm - Military Time)</label>
+                  <input class="form-control" id="first-train" type="text">
+                </div>
+                <div class="form-group">
+                  <label for="frequency">Frequency (Min)</label>
+                  <input class="form-control" id="frequency" type="text">
+                </div>
+                <button class="btn btn-primary" id="add-train-btn" type="submit">Submit</button>
+              </form>
 
-        <!-- Add a new train -->
-        <div class="panel panel-primary">
-
-          <!-- Add a new train table header -->
-          <div class="panel-heading">
-            <h3 class="panel-title"><strong>Add a Train</strong></h3>
-          </div>
-
-          <!-- Add a new train table content -->
-          <div class="panel-body">
-
-            <!-- Form that takes the user input for new trains -->
-            <form>
-              <div class="form-group">
-                <label>Train Name</label>
-                <input class="form-control" id="train-name-input" type="text">
-              </div>
-              <div class="form-group">
-                <label>Destination</label>
-                <input class="form-control" id="destination-input" type="text">
-              </div>
-              <div class="form-group">
-                <label>First Train Time (HH:mm - military time)</label>
-                <input class="form-control" id="first-train-input" type="text">
-              </div>
-              <div class="form-group">
-                <label>Frequency (minutes)</label>
-                <input class="form-control" id="frequency-input" type="text">
-              </div>
-              <button class="btn" id="add-train-btn" type="submit">Submit</button>
-            </form>
+            </div>
 
           </div>
 
@@ -120,13 +107,8 @@
 
     </div>
 
-  </div>
-
-  <!-- Link to the external JavaScript -->
-  <script type="text/javascript" src="./logic.js"></script>
-  <script src="/__/firebase/init.js"></script>
-
-</body>
-
+    <!-- JavaScript -->
+<script src= "./logic.js"></script>
+  </body>
 
 </html>
