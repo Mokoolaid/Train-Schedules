@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Train Schedule</h1>
+        <p class="lead">
+          Groove Line
+        </p>
+      </div>
+    </div>
+
+    <!--Table section here-->
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Train Name</th>
+          <th scope="col">Destination</th>
+          <th scope="col">Frequency</th>
+          <th scope="col">Next Arrival</th>
+          <th scope="col">Minutes Away</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <form>
+      <div class="form-group">
+        <label for="trainName">Train Name</label>
+        <input
+          type="name"
+          class="form-control"
+          id="trainName"
+          aria-describedby="trainName"
+          placeholder="Enter Train Name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="destination">Destination</label>
+        <input
+          type="destination"
+          class="form-control"
+          id="destination"
+          placeholder="Destination"
+        />
+      </div>
+      <div class="form-group">
+        <label for="firstTimeTrain">First Time Train</label>
+        <input
+          type="name"
+          class="form-control"
+          id="trainName"
+          aria-describedby="trainName"
+          placeholder="Enter Train Name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="trainName">Train Name</label>
+        <input
+          type="name"
+          class="form-control"
+          id="trainName"
+          aria-describedby="trainName"
+          placeholder="Enter Train Name"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyB8lvR1njjj5H9DMEc4m44qMLRTThWK4uc",
+    authDomain: "train-367b9.firebaseapp.com",
+    databaseURL: "https://train-367b9.firebaseio.com",
+    projectId: "train-367b9",
+    storageBucket: "train-367b9.appspot.com",
+    messagingSenderId: "471526878292",
+    appId: "1:471526878292:web:f5590d76101c0c9eedd1c1",
+    measurementId: "G-0XNDBHK5NT"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+  </body>
+</html>

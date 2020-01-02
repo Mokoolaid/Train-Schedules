@@ -1,103 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-  </head>
+<html lang="en-us">
 
-  <body>
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <h1 class="display-4">Train Schedule</h1>
-        <p class="lead">
-          Groove Line
-        </p>
+<head>
+
+  <meta charset="UTF-8">
+  <title>Train Scheduler</title>
+
+  <!-- jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js"></script>
+
+  <!-- Bootstrap CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <!-- Custom CSS file -->
+  <link rel="stylesheet" href="./style.css">
+
+  <!-- Firebase Reference -->
+  <script src="/__/firebase/7.6.1/firebase-app.js"></script>
+
+  <!-- Moment.js Reference! -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/af.js"></script>
+
+</head>
+
+<body>
+
+  <!-- Div containing the entire page -->
+  <div class="container">
+
+    <!-- Header for page -->
+    <div class="jumbotron">
+      <div class="row">
+        <div class="col-md-12">
+          <iframe width="420" height="315" src="https://www.youtube.com/embed/sw1OwMrh7XA" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="text-center"><strong>Groove Line</strong></h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="text-center">Real time train information and scheduler for the Groove Line, pack your grip!</h3>
+        </div>
       </div>
     </div>
 
-    <!--Table section here-->
+    <!-- Contains both tables on page -->
+    <div class="row">
 
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Train Name</th>
-          <th scope="col">Destination</th>
-          <th scope="col">Frequency</th>
-          <th scope="col">Next Arrival</th>
-          <th scope="col">Minutes Away</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-    <form>
-      <div class="form-group">
-        <label for="trainName">Train Name</label>
-        <input
-          type="name"
-          class="form-control"
-          id="trainName"
-          aria-describedby="trainName"
-          placeholder="Enter Train Name"
-        />
+      <div class="col-md-12">
+
+        <!-- Current scheduled trains -->
+        <div class="panel panel-primary">
+
+          <!-- Current train table header -->
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong>Current Train Schedule</strong></h3>
+          </div>
+
+          <!-- Current train table content -->
+          <div class="panel-body">
+            <table class="table table-hover" id="train-table">
+              <thead>
+                <tr>
+                  <th>Train Name</th>
+                  <th>Destination</th>
+                  <th>Frequency (minutes)</th>
+                  <th>Next Arrival</th>
+                  <th>Minutes Away</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+        <!-- Add a new train -->
+        <div class="panel panel-primary">
+
+          <!-- Add a new train table header -->
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong>Add a Train</strong></h3>
+          </div>
+
+          <!-- Add a new train table content -->
+          <div class="panel-body">
+
+            <!-- Form that takes the user input for new trains -->
+            <form>
+              <div class="form-group">
+                <label>Train Name</label>
+                <input class="form-control" id="train-name-input" type="text">
+              </div>
+              <div class="form-group">
+                <label>Destination</label>
+                <input class="form-control" id="destination-input" type="text">
+              </div>
+              <div class="form-group">
+                <label>First Train Time (HH:mm - military time)</label>
+                <input class="form-control" id="first-train-input" type="text">
+              </div>
+              <div class="form-group">
+                <label>Frequency (minutes)</label>
+                <input class="form-control" id="frequency-input" type="text">
+              </div>
+              <button class="btn" id="add-train-btn" type="submit">Submit</button>
+            </form>
+
+          </div>
+
+        </div>
+
       </div>
-      <div class="form-group">
-        <label for="destination">Destination</label>
-        <input
-          type="destination"
-          class="form-control"
-          id="destination"
-          placeholder="Destination"
-        />
-      </div>
-      <div class="form-group">
-        <label for="firstTimeTrain">First Time Train</label>
-        <input
-          type="name"
-          class="form-control"
-          id="trainName"
-          aria-describedby="trainName"
-          placeholder="Enter Train Name"
-        />
-      </div>
-      <div class="form-group">
-        <label for="trainName">Train Name</label>
-        <input
-          type="name"
-          class="form-control"
-          id="trainName"
-          aria-describedby="trainName"
-          placeholder="Enter Train Name"
-        />
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-  </body>
+
+    </div>
+
+  </div>
+
+  <!-- Link to the external JavaScript -->
+  <script type="text/javascript" src="./logic.js"></script>
+  <script src="/__/firebase/init.js"></script>
+
+</body>
+
+
 </html>
